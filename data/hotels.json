@@ -1,0 +1,29 @@
+[
+  {
+    "id": "hotel-roma-centro",
+    "name": "Hotel Roma Centro",
+    "destinationId": "italy",
+    "stars": 4,
+    "pricePerNight": 190,
+    "image": "images/hotel-roma-centro.jpg",
+    "amenities": ["Free Wi-Fi", "Breakfast included", "Air conditioning"]
+  },
+  {
+    "id": "cancun-beach-resort",
+    "name": "Cancún Beach Resort",
+    "destinationId": "mexico",
+    "stars": 5,
+    "pricePerNight": 240,
+    "image": "images/cancun-beach-resort.jpg",
+    "amenities": ["Beachfront", "Pool", "All-inclusive"]
+  },
+  {
+    "id": "santa-monica-inn",
+    "name": "Santa Monica Inn",
+    "destinationId": "california",
+    "stars": 3,
+    "pricePerNight": 160,
+    "image": "images/santa-monica-inn.jpg",
+    "amenities": ["Free parking", "Free Wi-Fi"]
+  }
+]
