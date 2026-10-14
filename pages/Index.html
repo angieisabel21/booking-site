@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title> Travel agency | home</title>
+
+<link rel="stylesheet" href="css/home.css">
+
+<script src="js/searchsheet.js" defer></script>
+
+</head>
+
+<body>
+ <nav>
+    <h1>Travel Agency</h1>
+
+      <div class="nav-links">
+        <a href="index.html">home</a>
+        <a href="pages/destinations.html">Destinations</a>
+        <a href="pages/hotels.html">Hotels</a>
+        <a href="pages/flights.html">Flights</a>
+        <a href="pages/booking.html">Booking</a>
+    </div>
+     </nav>
+    </header>
+
+<section class="Promo">
+
+<h2>Welcome to Our Travel Agency</h2>
+
+
+<p>We help you schedule what destination you want to visit,the dates you plan to travel, and the number of members you are bringing along. Quick, Fast, and Easy!                                                                                  </p>
+
+
+
+<form id="search-form">
+    <input type="text" id="Destination"
+     placeholder="Travel location?" required>
+
+     <label for="checkin">Check-in</label>
+     <input type="date" id="checkin" required>
+    
+     <label for="checkout">Check-out</label>
+     <input type="date" id="checkout" required>
+
+     <label for="groupnumber">Group number</label>
+     <select id="Group number">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        </option>
+    </select>
+
+    <button type="submit">Search</button>
+</form>
+
+<p id="search-results" role="status"></p>
+
+</section
+
+
+<section class="Destination">
+<h2>Most booked locations</h2>
+
+<div class="destination-container">
+    <div class="card">
+     <h3>Italy</h3>
+        <img src="https://raw.githubusercontent.com/angieisabel21/booking-site/main/images/italy.jpg" alt="Italy">
+        <p>Italy offers rich history, world class cuisine, diverse landscapes and major attractions such as the Colosseum, Vatican City, Venice,Florence and many more.</p> 
+</div>
+
+
+<div class="card">
+    <img src="https://raw.githubusercontent.com/angieisabel21/booking-site/main/images/mexico1.jpg"  alt="Mexico">
+    <h3>Mexico</h3>
+    <p>Mexico is a vibrant country known for its rich culture, beautiful beaches, and delicious cuisine.</p>
+</div>
+
+
+<div class="card">
+    <img src="https://raw.githubusercontent.com/angieisabel21/booking-site/main/images/california1.jpg"  alt="California">
+    <h3>California</h3>
+    <p>California is a diverse state offering stunning coastlines, world-class cities, and breathtaking natural beauty.</p>
+    </div>
+    </div>
+</section>
+
+
+
+</body>
+
+</html>
