@@ -1,0 +1,23 @@
+[
+  {
+    "id": "italy",
+    "name": "Italy",
+    "country": "Italy",
+    "image": "images/italy.jpg",
+    "description": "Rich history, world-class cuisine and attractions like the Colosseum, Venice and Florence."
+  },
+  {
+    "id": "mexico",
+    "name": "Mexico",
+    "country": "Mexico",
+    "image": "images/mexico1.jpg",
+    "description": "A vibrant country known for its culture, beautiful beaches and delicious food."
+  },
+  {
+    "id": "california",
+    "name": "California",
+    "country": "USA",
+    "image": "images/california1.jpg",
+    "description": "Stunning coastlines, world-class cities and breathtaking natural beauty."
+  }
+]
