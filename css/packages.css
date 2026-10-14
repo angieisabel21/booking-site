@@ -1,0 +1,167 @@
+/*=========================================
+Vacation Packages page styling
+(nav, .Promo and .card come from home.css)
+=========================================*/
+
+/* Highlight the current page in the nav */
+.nav-links a.active {
+  color: #80d8ff;
+}
+
+/* Keep each link on one line ("Plan Your Trip", not "Plan Your / Trip") */
+.nav-links a {
+  white-space: nowrap;
+}
+
+/* Shorter banner than the home page */
+.page-banner {
+  min-height: 0;
+  padding: 60px 25px;
+}
+
+.page-banner p {
+  margin-bottom: 0;
+}
+
+/* Section that holds the filters and cards */
+.page-section {
+  padding: 70px 30px 100px;
+  text-align: center;
+}
+
+.page-section h2 {
+  font-size: 36px;
+  color: #123c69;
+  margin-bottom: 30px;
+}
+
+/*=========================================
+Filter buttons
+=========================================*/
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.filter-button {
+  padding: 10px 22px;
+  border: 2px solid #123c69;
+  border-radius: 25px;
+  background-color: white;
+  color: #123c69;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-button:hover,
+.filter-button.selected {
+  background-color: #123c69;
+  color: white;
+}
+
+/* "Showing packages in Italy · Show all" line */
+.destination-filter {
+  margin-bottom: 30px;
+  color: #607180;
+}
+
+.destination-filter a {
+  color: #3282b8;
+  font-weight: bold;
+}
+
+.destination-filter:empty {
+  display: none;
+}
+
+/*=========================================
+Package card details
+=========================================*/
+
+.card {
+  text-align: left;
+}
+
+/* Small colored label, e.g. "Cruise" */
+.card .badge {
+  align-self: flex-start;
+  margin: 18px 25px 0;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background-color: #e3f2fd;
+  color: #215f91;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card .trip-info {
+  padding: 0 25px 10px;
+  font-weight: bold;
+  color: #3282b8;
+  flex-grow: 0;
+}
+
+.card ul {
+  padding: 0 25px 20px 45px;
+  color: #607180;
+  font-size: 15px;
+}
+
+.card .price {
+  margin-top: auto;
+  padding: 18px 25px 25px;
+  border-top: 1px solid #e5ebf0;
+  font-size: 15px;
+  color: #607180;
+  flex-grow: 0;
+}
+
+.card .price strong {
+  font-size: 24px;
+  color: #123c69;
+}
+
+/* Messages for "no packages" or data that can't load */
+.list-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-weight: bold;
+  color: #607180;
+}
+
+.list-message.error {
+  color: #b42318;
+}
+
+/*=========================================
+Phone / small screens
+=========================================*/
+
+/* Seven nav links need room, so stack the nav under the title earlier */
+@media (max-width: 1000px) {
+  nav {
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px 22px;
+  }
+}
+
+/* One card per row on phones */
+@media (max-width: 700px) {
+  .destination-container {
+    grid-template-columns: 1fr;
+  }
+}

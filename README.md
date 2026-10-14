@@ -4,26 +4,28 @@ Web Design Booking Site Group Project
 ## Team & who owns what
 
 Each person owns their page's HTML, CSS and JS files. Ask the owner before editing someone else's files.
-These are the planned files; none have been created yet.
+All pages live in the main (root) folder. Every page links `css/home.css` for the shared nav, banner and card styles, then its own CSS file.
 
-| Area | Files | Owner |
+| Page | Files | Owner |
 |------|-------|-------|
-| Shared header/footer, base styles, helpers | `css/base.css`, `js/main.js` | _name_ |
+| Home | `index.html`, `css/home.css`, `js/search.js` | _Caleb_ |
+| Destinations | `destinations.html`, `css/destinations.css`, `js/destinations.js` | _name_ |
+| Vacation Packages | `packages.html`, `css/packages.css`, `js/packages.js`, `data/packages.json` | _name_ |
+| Plan Your Trip | `plan-trip.html`, `css/plan-trip.css`, `js/plan-trip.js` | _name_ |
+| About Us | `about.html`, `css/about.css` | _name_ |
+| Travel Tips | `travel-tips.html`, `css/travel-tips.css` | _name_ |
+| Contact Us | `contact.html`, `css/contact.css`, `js/contact.js` | _name_ |
 | Data files (hotels, flights, destinations) | `data/*.json` | _name_ |
-| Home page + search | `index.html`, `css/home.css`, `js/search.js` | _Caleb_ |
-| Destinations | `pages/destinations.html`, `css/destinations.css`, `js/destinations.js` | _name_ |
-| Hotels | `pages/hotels.html`, `css/hotels.css`, `js/hotels.js` | _name_ |
-| Flights | `pages/flights.html`, `css/flights.css`, `js/flights.js` | _name_ |
-| Booking + confirmation | `pages/booking.html`, `pages/confirmation.html`, `css/booking.css`, `js/booking.js`, `js/confirmation.js` | _name_ |
 
 ## Folder structure
 
 ```
-index.html        Home page (goes in the main folder)
-pages/            All other pages (destinations.html, hotels.html, ...)
-css/              base.css for shared styles + one CSS file per page
-js/               main.js for shared helpers + one JS file per page
-data/             JSON files with destinations, hotels and flights
+index.html        Home page
+destinations.html All pages sit here in the main folder
+packages.html     (plan-trip.html, about.html, travel-tips.html, contact.html)
+css/              home.css for shared styles + one CSS file per page
+js/               One JS file per page
+data/             JSON files with destinations, hotels, flights and packages
 images/           Pictures (lowercase-with-hyphens.jpg)
 ```
 
@@ -38,14 +40,15 @@ We don't use a real database. The site's data lives in **JSON files** in the `da
 | `data/destinations.json` | Places you can travel to | `id`, `name`, `country`, `image`, `description` |
 | `data/hotels.json` | Hotels | `id`, `name`, `destinationId`, `stars`, `pricePerNight`, `image`, `amenities` |
 | `data/flights.json` | Flights | `id`, `from`, `to`, `destinationId`, `airline`, `departure`, `arrival`, `price` |
+| `data/packages.json` | Vacation packages | `id`, `name`, `type` (`cruise`, `resort`, `honeymoon` or `family`), `destinationId`, `nights`, `pricePerPerson`, `image`, `description`, `includes` |
 
-`destinationId` links a hotel or flight to a destination's `id` (e.g. `"italy"`).
+`destinationId` links a hotel, flight or package to a destination's `id` (e.g. `"italy"`).
 
 **Reading a file in JavaScript:**
 
 ```js
-// From index.html use "data/hotels.json"; from a page in pages/ use "../data/hotels.json"
-fetch("../data/hotels.json")
+// All pages are in the main folder, so the path starts with "data/"
+fetch("data/hotels.json")
   .then(response => response.json())
   .then(hotels => {
     console.log(hotels); // an array of hotel objects

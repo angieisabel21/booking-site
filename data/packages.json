@@ -1,0 +1,68 @@
+[
+  {
+    "id": "mediterranean-cruise",
+    "name": "Mediterranean Cruise",
+    "type": "cruise",
+    "destinationId": "italy",
+    "nights": 7,
+    "pricePerPerson": 1899,
+    "image": "images/italy.jpg",
+    "description": "Sail from Rome along the Italian coast with stops in Naples, Sicily and the Amalfi Coast.",
+    "includes": ["Ocean-view cabin", "All meals on board", "3 guided shore excursions"]
+  },
+  {
+    "id": "tuscany-honeymoon",
+    "name": "Tuscany Honeymoon Escape",
+    "type": "honeymoon",
+    "destinationId": "italy",
+    "nights": 6,
+    "pricePerPerson": 2350,
+    "image": "images/italy.jpg",
+    "description": "A romantic stay in a countryside villa with vineyard tours and sunset dinners in Florence.",
+    "includes": ["Villa suite", "Private wine tasting", "Candlelit dinner for two"]
+  },
+  {
+    "id": "cancun-all-inclusive",
+    "name": "Cancún All-Inclusive Resort",
+    "type": "resort",
+    "destinationId": "mexico",
+    "nights": 5,
+    "pricePerPerson": 1250,
+    "image": "images/mexico1.jpg",
+    "description": "Relax on white-sand beaches with unlimited food, drinks and pool access.",
+    "includes": ["Beachfront room", "All meals and drinks", "Airport transfers"]
+  },
+  {
+    "id": "riviera-maya-cruise",
+    "name": "Riviera Maya Cruise",
+    "type": "cruise",
+    "destinationId": "mexico",
+    "nights": 4,
+    "pricePerPerson": 980,
+    "image": "images/mexico1.jpg",
+    "description": "A short Caribbean cruise visiting Cozumel and Mayan ruins along the coast.",
+    "includes": ["Inside cabin", "All meals on board", "Mayan ruins tour"]
+  },
+  {
+    "id": "california-family-adventure",
+    "name": "California Family Adventure",
+    "type": "family",
+    "destinationId": "california",
+    "nights": 7,
+    "pricePerPerson": 1450,
+    "image": "images/california1.jpg",
+    "description": "Theme parks, beaches and a day trip to the San Diego Zoo for the whole family.",
+    "includes": ["Family suite", "3-day theme park passes", "Rental car"]
+  },
+  {
+    "id": "big-sur-resort",
+    "name": "Big Sur Coastal Resort",
+    "type": "resort",
+    "destinationId": "california",
+    "nights": 4,
+    "pricePerPerson": 1600,
+    "image": "images/california1.jpg",
+    "description": "Ocean-cliff views, spa days and hikes among the redwoods on the Pacific coast.",
+    "includes": ["Ocean-view room", "Daily breakfast", "Spa credit"]
+  }
+]

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Agency | Vacation Packages</title>
+
+  <!-- Shared look from the home page, then styles just for this page -->
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/packages.css">
+
+  <script src="js/packages.js" defer></script>
+</head>
+
+<body>
+  <nav>
+    <h1>Travel Agency</h1>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="packages.html" class="active">Vacation Packages</a>
+      <a href="plan-trip.html">Plan Your Trip</a>
+      <a href="about.html">About Us</a>
+      <a href="travel-tips.html">Travel Tips</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </nav>
+
+  <section class="Promo page-banner">
+    <h2>Vacation Packages</h2>
+    <p>Cruises, resorts, honeymoons and family vacations, with everything planned for you.</p>
+  </section>
+
+  <section class="page-section">
+    <h2>Find your package</h2>
+
+    <!-- Clicking a button shows only that type of package -->
+    <div class="filter-buttons" id="filter-buttons">
+      <button type="button" class="filter-button selected" data-type="all">All</button>
+      <button type="button" class="filter-button" data-type="cruise">Cruises</button>
+      <button type="button" class="filter-button" data-type="resort">Resorts</button>
+      <button type="button" class="filter-button" data-type="honeymoon">Honeymoons</button>
+      <button type="button" class="filter-button" data-type="family">Family</button>
+    </div>
+
+    <!-- Shown when the page was opened from a destination, e.g. packages.html?destination=italy -->
+    <p class="destination-filter" id="destination-filter"></p>
+
+    <!-- Cards are added here by js/packages.js using data/packages.json -->
+    <div class="destination-container" id="package-list"></div>
+  </section>
+</body>
+</html>
