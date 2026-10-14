@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Travel Agency | Hotels</title>
+
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/hotels.css">
+
+  <script src="js/hotels.js" defer></script>
+</head>
+
+<body>
+
+  <nav>
+    <h1>Travel Agency</h1>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="hotels.html" class="active">Hotels</a>
+      <a href="packages.html">Vacation Packages</a>
+    </div>
+  </nav>
+
+  <section class="Promo">
+    <h2>Find Your Perfect Hotel</h2>
+    <p>
+      Explore hotels around the world and find
+      the perfect place for your next vacation!
+    </p>
+  </section>
+
+  <main class="hotels-section">
+
+    <h2>Explore Hotels</h2>
+
+    <div class="hotel-search">
+
+      <label for="destination">Choose Destination</label>
+      <select id="destination">
+        <option value="italy">Rome, Italy</option>
+        <option value="mexico">Cancun, Mexico</option>
+        <option value="california">Los Angeles, California</option>
+        <option value="japan">Tokyo, Japan</option>
+        <option value="vegas">Las Vegas, Nevada</option>
+      </select>
+
+      <label for="hotel-category">Hotel Category</label>
+      <select id="hotel-category">
+        <option value="all">All Hotels</option>
+        <option value="luxury">Luxury Hotels</option>
+        <option value="mid-range">Mid-Range Hotels</option>
+        <option value="budget">Budget Hotels</option>
+      </select>
+
+      <button type="button" id="search-hotels">
+        Search Hotels
+      </button>
+
+    </div>
+
+    <h2>Available Hotels</h2>
+
+    <p class="demo-notice">
+      Hotel prices are estimates for demonstration
+      purposes only. No real bookings or payments
+      will be processed.
+    </p>
+
+    <p id="hotel-status" role="status"></p>
+
+    <div class="hotel-container" id="hotel-list">
+      <!-- Hotel cards will be added with JavaScript -->
+    </div>
+
+  </main>
+
+</body>
+</html>
