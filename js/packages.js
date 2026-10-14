@@ -1,15 +1,12 @@
 // Vacation Packages page: builds a card for each package in data/packages.json.
-// Visitors can filter by type (cruise, resort, ...) with the buttons,
-// and by destination when they arrive from the Destinations page (packages.html?destination=italy).
 
 const packageList = document.getElementById("package-list");
 const filterButtons = document.querySelectorAll(".filter-button");
 const destinationFilter = document.getElementById("destination-filter");
 
-// The destination in the page address, e.g. "italy" (or null if there isn't one)
 const destinationFromUrl = new URLSearchParams(window.location.search).get("destination");
 
-// Labels shown on the badge for each package type
+
 const typeLabels = {
   cruise: "Cruise",
   resort: "Resort",
@@ -31,7 +28,7 @@ function loadJson(path) {
   });
 }
 
-// Turns 1899 into "$1,899"
+// format dollar amounts to include commas
 function formatPrice(amount) {
   return "$" + amount.toLocaleString("en-US");
 }

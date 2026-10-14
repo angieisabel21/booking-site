@@ -1,5 +1,4 @@
-// Destinations page: builds a card for each destination in data/destinations.json.
-// It also looks up the cheapest hotel and flight for each one from the other JSON files.
+// Javascript for Destinations page
 
 const destinationList = document.getElementById("destination-list");
 
@@ -13,13 +12,12 @@ function loadJson(path) {
   });
 }
 
-// Turns 1200 into "$1,200"
+// Format dollar amounts to include commas 
 function formatPrice(amount) {
   return "$" + amount.toLocaleString("en-US");
 }
 
-// Finds the lowest value of one field (like "price") among items for one destination.
-// Returns null if there are no matches.
+// Finds the lowest value a field
 function cheapest(items, destinationId, priceField) {
   const prices = items
     .filter(function (item) { return item.destinationId === destinationId; })
@@ -31,12 +29,12 @@ function cheapest(items, destinationId, priceField) {
   return Math.min(...prices);
 }
 
-// Builds the HTML for one destination card
+// create the HTML for one destination card
 function destinationCard(destination, hotels, flights) {
   const hotelPrice = cheapest(hotels, destination.id, "pricePerNight");
   const flightPrice = cheapest(flights, destination.id, "price");
 
-  // Only show the prices we actually have data for
+  
   const priceParts = [];
   if (hotelPrice !== null) {
     priceParts.push("Hotels from " + formatPrice(hotelPrice) + "/night");
@@ -56,7 +54,7 @@ function destinationCard(destination, hotels, flights) {
     </div>`;
 }
 
-// Load all three files at the same time, then show the cards
+// Load all three files
 Promise.all([
   loadJson("data/destinations.json"),
   loadJson("data/hotels.json"),
