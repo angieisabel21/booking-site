@@ -6,6 +6,7 @@
     "destinationId": "italy",
     "airline": "Sample Air",
     "departure": "2026-12-15T18:30",
+    "arrival": "2026-12-16T08:45",
     "price": 720
   },
   {
@@ -15,6 +16,7 @@
     "destinationId": "mexico",
     "airline": "Sample Air",
     "departure": "2026-12-20T09:15",
+    "arrival": "2026-12-20T13:30",
     "price": 410
   },
   {
@@ -24,6 +26,7 @@
     "destinationId": "california",
     "airline": "Sample Air",
     "departure": "2026-12-18T07:45",
+    "arrival": "2026-12-18T08:50",
     "price": 230
   }
 ]

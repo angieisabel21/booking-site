@@ -37,7 +37,7 @@ We don't use a real database. The site's data lives in **JSON files** in the `da
 |------|--------------|--------|
 | `data/destinations.json` | Places you can travel to | `id`, `name`, `country`, `image`, `description` |
 | `data/hotels.json` | Hotels | `id`, `name`, `destinationId`, `stars`, `pricePerNight`, `image`, `amenities` |
-| `data/flights.json` | Flights | `id`, `from`, `to`, `destinationId`, `airline`, `departure`, `price` |
+| `data/flights.json` | Flights | `id`, `from`, `to`, `destinationId`, `airline`, `departure`, `arrival`, `price` |
 
 `destinationId` links a hotel or flight to a destination's `id` (e.g. `"italy"`).
 
