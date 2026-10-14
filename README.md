@@ -10,7 +10,7 @@ These are the planned files; none have been created yet.
 |------|-------|-------|
 | Shared header/footer, base styles, helpers | `css/base.css`, `js/main.js` | _name_ |
 | Data files (hotels, flights, destinations) | `data/*.json` | _name_ |
-| Home page + search | `index.html`, `css/home.css`, `js/search.js` | _name_ |
+| Home page + search | `index.html`, `css/home.css`, `js/search.js` | _Caleb_ |
 | Destinations | `pages/destinations.html`, `css/destinations.css`, `js/destinations.js` | _name_ |
 | Hotels | `pages/hotels.html`, `css/hotels.css`, `js/hotels.js` | _name_ |
 | Flights | `pages/flights.html`, `css/flights.css`, `js/flights.js` | _name_ |
