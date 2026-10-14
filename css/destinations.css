@@ -3,6 +3,7 @@ Destinations page styling
 (nav, .Promo and .card come from home.css)
 =========================================*/
 
+
 /* Highlight the current page in the nav */
 .nav-links a.active {
   color: #80d8ff;
