@@ -71,6 +71,31 @@ nav h1 {
     color:#80d8ff;
 }
 
+/* Keep each link on one line */
+.nav-links a {
+    white-space: nowrap;
+}
+
+/* Highlight the page you're on (add class="active" to its link) */
+.nav-links a.active {
+    color:#80d8ff;
+}
+
+/* On smaller screens, stack the nav under the title */
+@media (max-width: 1000px) {
+    nav {
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px 22px;
+    }
+}
+
 /*=========================================
 Welcome/Promo Section Styling
 =========================================*/
