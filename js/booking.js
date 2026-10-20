@@ -25,9 +25,12 @@ function verifyTrip()
     //Todo verify that hotel has been chose//if not ask if they wish to book hotel beofore moving 
     //Todo verify that dateChosen is available
 }
+function addCalendar()
+{
+    //Todo add Calendar
+}
 function giveSummary()
 {
     //Todo send to summary of trip page
     //This page should include: packing tips/time of year/events going on/image of selected locaiton/ or whatever feels good
 }
- 
