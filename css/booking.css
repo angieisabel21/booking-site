@@ -1,4 +1,50 @@
+/*Link Section details*/
 .reminder
 {
-    text-align:center;
+    margin-left:220px;
+    display:flex;
+    justify-content:space-between;
+}
+
+/*Links details*/
+.reminder a
+{
+    color:black;
+}
+
+/*Links hover*/
+.reminder a:hover
+{
+    outline:auto;
+    outline-color:green;
+}
+
+/*Button details*/
+.confirm
+{
+    margin-left:200px;
+    width:auto;
+    height:30px;
+}
+
+/*Button hover*/
+.confirm:hover
+{
+    background-color:green;
+}
+
+/*H2 details*/
+h2
+{
+    text-align:left;
+    margin-left:200px;
+}
+
+/*Table details*/
+.check
+{
+    display:flex;
+    justify-content:space-between;
+    margin-left:170px;
+    border-spacing:30px;
 }

@@ -24,10 +24,37 @@ function verifyTrip()
     //Todo verify that airline has been chosen
     //Todo verify that hotel has been chose//if not ask if they wish to book hotel beofore moving 
     //Todo verify that dateChosen is available
+
+    let button=document.querySelector(".confirm");
+    button.eventListener("click",function
+        {
+            let p=document.createElement("p");
+            let airline=getAirline();
+            let destination=getDestination();
+            let hotel=getHotel();
+            if(!airline[1])
+            {
+                
+            }
+            if(!destination[1])
+            {
+
+            }
+            if[!hotel[1]]
+            {
+
+            }
+
+
+
+        });
+
+
 }
 function addCalendar()
 {
     //Todo add Calendar
+    //Maybe
 }
 function giveSummary()
 {
