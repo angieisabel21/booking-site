@@ -8,11 +8,13 @@
     <!--Custom page style-->
     <link rel="stylesheet" href="css/booking.css">
 
-    <script src="js/booking.js"></script>
+    <script src="js/booking.js" defer></script>
     
     <title>Book Your Trip</title>
 </head>
 <body>
+    
+
     <!--Nav bar for site-->
     <nav>
         <h1>Book Your Trip</h1>
@@ -40,10 +42,18 @@
     <section>
         <table class="check">
             <tr>
-                <td>Destination</td>
-                <td>Flight</td>
-                <td>Hotel</td>
-                <td>Packages</td>
+                <td id="destValid">Destination?</td>
+                <td><img src="images/cliffs_booking.jpg" width="400px" height="280px"></td>
+
+                <td id="flightValid">Flight?</td>
+                <td><img src="images/airline_booking.jpg" width="400px" height="280px"></td>
+            </tr>
+            <tr>
+                <td id="hotelValid">Hotel?</td>
+                <td><img src="images/hotel_booking.jpg" width="400px" height="280px"></td>
+
+                <td id="planValid">Plan?</td>
+                <td><img src="images/plan_booking.jpg" width="400px" height="280px"></td>
             </tr>
         </table>
     </section>

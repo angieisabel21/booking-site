@@ -1,9 +1,17 @@
 /*Link Section details*/
 .reminder
 {
-    margin-left:220px;
+    margin-left:50px;
     display:flex;
     justify-content:space-between;
+}
+
+/*Body details*/
+body
+{
+    border-right:50px solid #123c69;
+    border-left:50px solid #123c69;
+    background-color:beige;
 }
 
 /*Links details*/
@@ -22,7 +30,7 @@
 /*Button details*/
 .confirm
 {
-    margin-left:200px;
+    margin-left:30px;
     width:auto;
     height:30px;
 }
@@ -37,7 +45,7 @@
 h2
 {
     text-align:left;
-    margin-left:200px;
+    margin-left:30px;
 }
 
 /*Table details*/
@@ -45,6 +53,5 @@ h2
 {
     display:flex;
     justify-content:space-between;
-    margin-left:170px;
     border-spacing:30px;
 }
