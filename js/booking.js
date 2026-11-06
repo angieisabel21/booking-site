@@ -21,16 +21,14 @@ function getPackage()
 function getDate()
 {
     //Todo verify dates are open
+    let checkin=sessionStorage.getItem("checkin");
+    let checkout=sessionStorage.getItem("checkout");
 
-    if(sessionStorage.getItem("checkin")===null)
+    if(checkin===null&&checkout===null)
     {
         return["No Date Selected",false]
     }
-    if(sessionStorage.getItem("checkout")===null)
-    {
-        return["No Date Selected",false]
-    }
-    return["Date Selected", true]    
+    return["From "+checkin+" To "+checkout, true]    
 }
 
 let button=document.querySelector(".confirm");
@@ -42,6 +40,10 @@ button.addEventListener("click",
         let hotel=getHotel();
         let package=getPackage();
         let date=getDate();
+        if(date[1])
+        {
+            document.getElementById("dateChosen").innerHTML=date[0];
+        }
         if(!date[1])
         {
             alert("No Date Selected");
@@ -77,6 +79,8 @@ button.addEventListener("click",
                 package.style.textDecorationLine="underline";
                 package.style.color="red";
             }
+            document.querySelector(".check").style.visibility="visible";
+            document.getElementById("logo").style.display="none";
         }
     }
 );

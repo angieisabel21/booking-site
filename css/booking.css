@@ -11,8 +11,17 @@ body
 {
     border-right:50px solid #123c69;
     border-left:50px solid #123c69;
-    background-color:beige;
+
 }
+
+/*Date Chosen details*/
+#dateChosen
+{
+    margin-left:30px;
+    text-decoration-line:underline;
+    color:black;
+    text-align:center;
+} 
 
 /*Links details*/
 .reminder a
@@ -51,7 +60,9 @@ h2
 /*Table details*/
 .check
 {
+    visibility: hidden;
     display:flex;
-    justify-content:space-between;
+    justify-content:center;
     border-spacing:30px;
+    border:5px solid black;
 }
