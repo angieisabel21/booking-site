@@ -8,10 +8,6 @@ function getAirline()
     //Todo get chosen airline
     return["No Airline",false]
 }
-function getImage() 
-{
-    //Todo get image for chosen destination     
-}
 function getHotel()
 {
     //Todo get chosen hotel
@@ -21,26 +17,38 @@ function getPackage()
 {
     return["No Package",false]
 }
-function checkDates(dateChosen)
+
+function getDate()
 {
     //Todo verify dates are open
+
+    if(sessionStorage.getItem("checkin")===null)
+    {
+        return["No Date Selected",false]
+    }
+    if(sessionStorage.getItem("checkout")===null)
+    {
+        return["No Date Selected",false]
+    }
+    return["Date Selected", true]    
 }
-
-
-    //Todo verify that destination has been chosen
-    //Todo verify that airline has been chosen
-    //Todo verify that hotel has been chose//if not ask if they wish to book hotel beofore moving 
-    //Todo verify that dateChosen is available
 
 let button=document.querySelector(".confirm");
 button.addEventListener("click",
     function()
-    {
-            
-            let airline=getAirline();
-            let destination=getDestination();
-            let hotel=getHotel();
-            let package=getPackage();
+    {    
+        let airline=getAirline();
+        let destination=getDestination();
+        let hotel=getHotel();
+        let package=getPackage();
+        let date=getDate();
+        if(!date[1])
+        {
+            alert("No Date Selected");
+            window.location.href="index.html"
+        }
+        else
+        {
             if(!airline[1])
             {
                 airline=document.getElementById("flightValid");
@@ -69,17 +77,6 @@ button.addEventListener("click",
                 package.style.textDecorationLine="underline";
                 package.style.color="red";
             }
-    });
-
-
-
-function addCalendar()
-{
-    //Todo add Calendar
-    //Maybe
-}
-function giveSummary()
-{
-    //Todo send to summary of trip page
-    //This page should include: packing tips/time of year/events going on/image of selected locaiton/ or whatever feels good
-}
+        }
+    }
+);
