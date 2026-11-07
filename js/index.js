@@ -8,8 +8,17 @@ form.addEventListener("submit",
 
         try
         {
-            sessionStorage.setItem("checkin",checkin.value);
-            sessionStorage.setItem("checkout",checkout.value);
+            if(checkout.value<checkin.value)
+            {
+                sessionStorage.setItem("checkout",checkin.value);
+                sessionStorage.setItem("checkin",checkout.value);
+                alert("Checkout was before the Checkin: Dates swapped");
+            }
+            else
+            {
+                sessionStorage.setItem("checkin",checkin.value);
+                sessionStorage.setItem("checkout",checkout.value);
+            }     
         }
         catch(error)
         {
