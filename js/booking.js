@@ -20,7 +20,7 @@ function getPackage()
 
 function getDate()
 {
-    //Todo verify dates are open
+    //Verify dates
     let checkin=sessionStorage.getItem("checkin");
     let checkout=sessionStorage.getItem("checkout");
 
