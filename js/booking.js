@@ -1,21 +1,45 @@
 function getDestination()
 {
-    //Todo get chosen destination
-    return["No Destination",false]
+    //Verifies destination is seleceted
+    let destination=sessionStorage.getItem("destination");
+    if(destination===null)
+    {
+        return["No Destination",false]
+    }
+    else return[destination,true]
+    
 }
 function getAirline()
 {
-    //Todo get chosen airline
-    return["No Airline",false]
+    //Verfies airline is selected
+    let airline=sessionStorage.getItem("airline");
+    if(airline===null)
+    {
+        return["No Airline",false]
+    }
+    else return[airline,true]
 }
 function getHotel()
 {
-    //Todo get chosen hotel
-    return["No Hotel",false]
+    //Verifies hotel is seleted
+    let hotel=sessionStorage.getItem("hotel");
+    if(hotel===null)
+    {
+        return["No Hotel",false]
+    }
+    else return[hotel,true]
 }
 function getPackage()
 {
-    return["No Package",false]
+    //Verifies package is selected
+    let package=sessionStorage.getItem("package");
+    if(package===null)
+    {
+        return["No Package",false]
+    }
+    else return[package, true]
+
+    
 }
 
 function getDate()
@@ -28,7 +52,7 @@ function getDate()
     {
         return["No Date Selected",false]
     }
-    return["From "+checkin+" To "+checkout, true]    
+    else return["From "+checkin+" To "+checkout, true,checkin,checkout]    
 }
 
 //After confirm trip button is pressed the function fires
@@ -45,30 +69,15 @@ button.addEventListener("click",
         let date=getDate();
 
         //date[3] and date[2] are the number of days
-        let days=date[3]-date[2];
-
-        //Test values
-        /* 
-        airline[1]=true;
-        airline[0]="Delta";
-
-        hotel[1]=true;
-        hotel[0]="Grand Hotel";
-
-        package[1]=true;
-        package[0]="Ultra Delux"
-
-        destination[1]=true;
-        destination[0]="Mexico"
-        */
-
-
+        let [yearIn,monthIn,dayIn]=date[2].split("-").map(Number);
+        let [yearOut,monthOut,dayOut]=date[3].split("-").map(Number);
+        let days=dayOut-dayIn;
 
         //Check if the date is chosen
         if(date[1])
         {
             //If chosen adds a line to the page saying so
-            document.getElementById("dateChosen").innerHTML=date[0];
+            document.getElementById("dateChosen").innerHTML=date[0]+" <br>Your Trip is: "+days+" days long";
         }
         //Checks if the date isn't chosen
         if(!date[1])
