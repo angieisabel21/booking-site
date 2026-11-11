@@ -19,12 +19,12 @@ form.addEventListener("submit",
                 sessionStorage.setItem("checkin",checkout.value);
 
                 //Site Test
-                /*
+                
                 sessionStorage.setItem("destination","Mexico");
                 sessionStorage.setItem("airline","United");
                 sessionStorage.setItem("package","Delux");
                 sessionStorage.setItem("hotel","Grand Hotel");
-                */
+                
 
 
 
@@ -50,7 +50,7 @@ checkout.min=new Date().toLocaleDateString("en-CA");
 
 //Loop to add and eventlistener to each class
 let cards=document.querySelectorAll(".card");
-for(i=0;i<cards.length;i++)
+for(let i=0;i<cards.length;i++)
 {
     //If popular destinaiton is cliecked send them to destinations
     cards[i].addEventListener("click", 

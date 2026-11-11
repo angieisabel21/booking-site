@@ -73,6 +73,41 @@ button.addEventListener("click",
         let [yearOut,monthOut,dayOut]=date[3].split("-").map(Number);
         let days=dayOut-dayIn;
 
+        //Gets table elements
+        packageEl=document.getElementById("planValid");
+        hotelEl=document.getElementById("hotelValid");
+        destinationEl=document.getElementById("destValid");
+        airlineEl=document.getElementById("flightValid");
+
+        //Adds style to them
+        airlineEl.textContent=airline[0];
+        airlineEl.style.textDecorationLine="underline";
+
+        destinationEl.textContent=destination[0];
+        destinationEl.style.textDecorationLine="underline";
+
+        hotelEl.textContent=hotel[0];
+        hotelEl.style.textDecorationLine="underline";
+
+        packageEl.textContent=package[0];
+        packageEl.style.textDecorationLine="underline";
+
+        //Makes imgs hyperlinks
+        let location=["destinations.html","flights.html","hotels.html","packages.html"]
+
+        let img=document.querySelectorAll("#img");
+        for(let i=0;i<img.length;i++)
+        {
+            img[i].addEventListener("click",
+                function()
+                {
+                    window.location.href=location[i];
+                }
+            );
+        }
+
+
+
         //Check if the date is chosen
         if(date[1])
         {
@@ -93,67 +128,17 @@ button.addEventListener("click",
             //Each if statement highlights what the user hasn't selected
             //Each else if statement highlights what the user has selected
 
-            if(!airline[1])
-            {
-                airlineEl=document.getElementById("flightValid");
-                airlineEl.textContent=airline[0];
-                airlineEl.style.textDecorationLine="underline"
-                airlineEl.style.color="red";
-            }
-            else if(airline[1])
-            {
-                airlineEl=document.getElementById("flightValid");
-                airlineEl.textContent=airline[0];
-                airlineEl.style.textDecorationLine="underline"
-                airlineEl.style.color="green";
-            }
-            
+            if(!airline[1]){airlineEl.style.color="red"}
+            else if(airline[1]){airlineEl.style.color="green"}
 
-            if(!destination[1])
-            {
-                destinationEl=document.getElementById("destValid");
-                destinationEl.textContent=destination[0];
-                destinationEl.style.textDecorationLine="underline";
-                destinationEl.style.color="red";
-            }
-            else if(destination[1])
-            {
-                destinationEl=document.getElementById("destValid");
-                destinationEl.textContent=destination[0];
-                destinationEl.style.textDecorationLine="underline";
-                destinationEl.style.color="green";
-            }
+            if(!destination[1]){destinationEl.style.color="red"}
+            else if(destination[1]){destinationEl.style.color="green"}
 
-            if(!hotel[1])
-            {
-                hotelEl=document.getElementById("hotelValid");
-                hotelEl.textContent=hotel[0];
-                hotelEl.style.textDecorationLine="underline";
-                hotelEl.style.color="red";
-            }
-            else if(hotel[1])
-            {
-                hotelEl=document.getElementById("hotelValid");
-                hotelEl.textContent=hotel[0];
-                hotelEl.style.textDecorationLine="underline";
-                hotelEl.style.color="green";
-            }
+            if(!hotel[1]){hotelEl.style.color="red"}
+            else if(hotel[1]){hotelEl.style.color="green"}
 
-            if(!package[1])
-            {
-                packageEl=document.getElementById("planValid");
-                packageEl.textContent=package[0];
-                packageEl.style.textDecorationLine="underline";
-                packageEl.style.color="red";
-            }
-
-            else if(package[1])
-            {
-                packageEl=document.getElementById("planValid");
-                packageEl.textContent=package[0];
-                packageEl.style.textDecorationLine="underline";
-                packageEl.style.color="green";
-            }
+            if(!package[1]){packageEl.style.color="red"}
+            else if(package[1]){packageEl.style.color="green"}
 
             //Hides the logo and shows the images plus the users choice
             document.querySelector(".check").style.visibility="visible";
