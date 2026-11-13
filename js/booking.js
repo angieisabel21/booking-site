@@ -119,9 +119,11 @@ button.addEventListener("click",
             {
                 alert("Trip Is 0 days. Are you sure you want to book this trip?");
             }
+
+             //If chosen adds a line to the page saying so
             document.getElementById("dateChosen").innerHTML=date[0]+" <br>Your Trip is: "+days+text+" long";
 
-            //If chosen adds a line to the page saying so
+           
             
         }
         //Checks if the date isn't chosen
