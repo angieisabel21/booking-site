@@ -68,11 +68,6 @@ button.addEventListener("click",
         let package=getPackage();
         let date=getDate();
 
-        //date[3] and date[2] are the number of days
-        let [yearIn,monthIn,dayIn]=date[2].split("-").map(Number);
-        let [yearOut,monthOut,dayOut]=date[3].split("-").map(Number);
-        let days=dayOut-dayIn;
-
         //Gets table elements
         packageEl=document.getElementById("planValid");
         hotelEl=document.getElementById("hotelValid");
@@ -111,8 +106,23 @@ button.addEventListener("click",
         //Check if the date is chosen
         if(date[1])
         {
+            //date[3] and date[2] are the number of days
+            let [yearIn,monthIn,dayIn]=date[2].split("-").map(Number);
+            let [yearOut,monthOut,dayOut]=date[3].split("-").map(Number);
+            let days=dayOut-dayIn;
+            let text=" days";
+            if(days==1)
+            {
+                text=" day"
+            }
+            if(days==0)
+            {
+                alert("Trip Is 0 days. Are you sure you want to book this trip?");
+            }
+            document.getElementById("dateChosen").innerHTML=date[0]+" <br>Your Trip is: "+days+text+" long";
+
             //If chosen adds a line to the page saying so
-            document.getElementById("dateChosen").innerHTML=date[0]+" <br>Your Trip is: "+days+" days long";
+            
         }
         //Checks if the date isn't chosen
         if(!date[1])
