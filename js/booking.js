@@ -162,6 +162,7 @@ button.addEventListener("click",
 
             //Hides the logo and shows the images plus the users choice
             document.querySelector(".check").style.visibility="visible";
+            document.querySelector(".check").style.display="table";
             document.getElementById("logo").style.display="none";
 
             //Shows the trip summary with prices and the total (true = trip is confirmed)
@@ -224,13 +225,24 @@ async function showSummary(confirmed)
 
         //Number of nights from the saved dates
         let date=getDate();
-        let nights=Math.round((new Date(date[3])-new Date(date[2]))/(1000*60*60*24));
+        let nights=0;
+        if(date[1])
+        {
+            nights=Math.round((new Date(date[3])-new Date(date[2]))/(1000*60*60*24));
+        }
 
         let total=0;
         let rows="";
 
         //Dates
-        rows+=summaryRow("Dates", date[2]+" to "+date[3]+" ("+nights+" nights)", "", "index.html");
+        if(date[1])
+        {
+            rows+=summaryRow("Dates", date[2]+" to "+date[3]+" ("+nights+" nights)", "", "index.html");
+        }
+        else
+        {
+            rows+=summaryRow("Dates", "Not chosen yet", "", "index.html");
+        }
 
         //Destination
         if(destination)
@@ -311,8 +323,14 @@ async function showSummary(confirmed)
 //Draws the "Step 6 of 6" progress bar (from steps.js)
 showSteps("booking.html");
 
-//If every step is already picked, show the summary right away
-if(getDate()[1]&&getDestination()[1]&&getAirline()[1]&&getHotel()[1]&&getPackage()[1])
-{
-    showSummary(false);
-}
+//Show the summary right away (no need to click Confirm Trip first)
+showSummary(false);
+
+//The summary takes the logo's place
+document.getElementById("logo").style.display="none";
+
+//Only show the "Need to book...?" reminders for things that aren't picked yet
+if(getDestination()[1]){document.getElementById("destination").style.display="none";}
+if(getHotel()[1]){document.getElementById("hotel").style.display="none";}
+if(getAirline()[1]){document.getElementById("flight").style.display="none";}
+if(getPackage()[1]){document.getElementById("package").style.display="none";}

@@ -8,7 +8,7 @@ progress bar comes from steps.css)
 .page-banner
 {
     min-height:0;
-    padding:60px 25px;
+    padding:40px 25px;
 }
 
 .page-banner p
@@ -21,16 +21,16 @@ progress bar comes from steps.css)
 {
     max-width:1100px;
     margin:0 auto;
-    padding:40px 25px 80px;
+    padding:25px 25px 50px;
     text-align:center;
 }
 
 /*H2 details*/
 .page-section h2
 {
-    font-size:36px;
+    font-size:30px;
     color:#123c69;
-    margin:10px 0 25px;
+    margin:5px 0 15px;
 }
 
 /*Link Section details*/
@@ -41,7 +41,7 @@ progress bar comes from steps.css)
     flex-wrap:wrap;
     justify-content:center;
     gap:10px;
-    margin-bottom:20px;
+    margin-bottom:10px;
 }
 
 /*Links details*/
@@ -87,7 +87,7 @@ progress bar comes from steps.css)
 /*Date Chosen details*/
 #dateChosen
 {
-    margin:20px 0;
+    margin:12px 0;
     color:#123c69;
     font-weight:bold;
 }
@@ -104,13 +104,15 @@ progress bar comes from steps.css)
 }
 
 /*Table details: white card like the rest of the site*/
+/*Hidden (and takes no space) until Confirm Trip is clicked*/
 .check
 {
     visibility:hidden;
+    display:none;
     width:100%;
     margin:0 auto;
     padding:10px;
-    border-spacing:20px;
+    border-spacing:15px;
     background-color:white;
     border-radius:15px;
     box-shadow:0 6px 20px rgba(0,0,0,0.10);
@@ -121,6 +123,7 @@ progress bar comes from steps.css)
 .trip-img
 {
     width:100%;
+    max-width:240px;
     height:auto;
     border-radius:10px;
     transition:transform 0.3s ease;
@@ -139,8 +142,8 @@ Trip summary box
 .summary
 {
     max-width:900px;
-    margin:0 auto 30px;
-    padding:25px 30px;
+    margin:0 auto 20px;
+    padding:20px 30px;
     background-color:white;
     border-radius:15px;
     box-shadow:0 6px 20px rgba(0,0,0,0.10);
@@ -169,7 +172,7 @@ Trip summary box
 .summary th,
 .summary td
 {
-    padding:12px 10px;
+    padding:9px 10px;
     border-bottom:1px solid #e5ebf0;
     text-align:left;
 }
@@ -239,7 +242,6 @@ Phone / small screens
 @media (max-width:700px)
 {
     /*Stack the check table: each label sits above its picture*/
-    .check,
     .check tbody,
     .check tr,
     .check td
