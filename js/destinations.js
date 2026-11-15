@@ -2,6 +2,15 @@
 
 const destinationList = document.getElementById("destination-list");
 
+// Reads the destination the visitor already picked (the booking page reads the same key)
+function getSelectedDestination() {
+  try {
+    return sessionStorage.getItem("destination");
+  } catch (error) {
+    return null;
+  }
+}
+
 // Load a JSON file and turn it into a JavaScript array
 function loadJson(path) {
   return fetch(path).then(function (response) {
@@ -50,9 +59,43 @@ function destinationCard(destination, hotels, flights) {
       <p class="country">${destination.country}</p>
       <p>${destination.description}</p>
       <p class="prices">${priceParts.join(" · ")}</p>
-      <a class="card-button" href="packages.html?destination=${destination.id}">View packages</a>
+      <div class="card-actions">
+        <button type="button" class="select-button" data-name="${destination.name}">Select destination</button>
+        <a class="card-button" href="packages.html?destination=${destination.id}">View packages</a>
+      </div>
     </div>`;
 }
+
+// Shows which card is selected: green "Selected ✓" button on that card, normal buttons on the rest
+function showSelected() {
+  const selectedName = getSelectedDestination();
+  const buttons = destinationList.querySelectorAll(".select-button");
+
+  for (let i = 0; i < buttons.length; i++) {
+    if (buttons[i].dataset.name === selectedName) {
+      buttons[i].textContent = "Selected ✓";
+      buttons[i].classList.add("selected");
+    } else {
+      buttons[i].textContent = "Select destination";
+      buttons[i].classList.remove("selected");
+    }
+  }
+}
+
+// When a "Select destination" button is clicked, save it so booking.html can show it
+destinationList.addEventListener("click", function (event) {
+  const button = event.target.closest(".select-button");
+  if (!button) {
+    return; // the click wasn't on a select button
+  }
+
+  try {
+    sessionStorage.setItem("destination", button.dataset.name);
+    showSelected();
+  } catch (error) {
+    alert("Could not save your destination: " + error.message);
+  }
+});
 
 // Load all three files
 Promise.all([
@@ -68,6 +111,9 @@ Promise.all([
     destinationList.innerHTML = destinations
       .map(function (destination) { return destinationCard(destination, hotels, flights); })
       .join("");
+
+    // Highlight the destination picked on an earlier visit
+    showSelected();
   })
   .catch(function (error) {
     console.error(error);

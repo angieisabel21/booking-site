@@ -28,6 +28,15 @@ function loadJson(path) {
   });
 }
 
+// Reads the package the visitor already picked (the booking page reads the same key)
+function getSelectedPackage() {
+  try {
+    return sessionStorage.getItem("package");
+  } catch (error) {
+    return null;
+  }
+}
+
 // format dollar amounts to include commas
 function formatPrice(amount) {
   return "$" + amount.toLocaleString("en-US");
@@ -39,6 +48,11 @@ function packageCard(pkg) {
     .map(function (item) { return `<li>${item}</li>`; })
     .join("");
 
+  // Show a green "Selected ✓" button if this is the package the visitor picked
+  const isSelected = pkg.name === getSelectedPackage();
+  const buttonText = isSelected ? "Selected ✓" : "Select package";
+  const buttonClass = isSelected ? "select-button selected" : "select-button";
+
   return `
     <div class="card">
       <span class="badge">${typeLabels[pkg.type]}</span>
@@ -48,6 +62,7 @@ function packageCard(pkg) {
       <p>${pkg.description}</p>
       <ul>${includesList}</ul>
       <p class="price">From <strong>${formatPrice(pkg.pricePerPerson)}</strong> per person</p>
+      <button type="button" class="${buttonClass}" data-id="${pkg.id}">${buttonText}</button>
     </div>`;
 }
 
@@ -75,6 +90,25 @@ filterButtons.forEach(function (button) {
     selectedType = button.dataset.type;
     showPackages();
   });
+});
+
+// When a "Select package" button is clicked, save the package and its destination
+// so booking.html can show them
+packageList.addEventListener("click", function (event) {
+  const button = event.target.closest(".select-button");
+  if (!button) {
+    return; // the click wasn't on a select button
+  }
+
+  const pkg = allPackages.find(function (p) { return p.id === button.dataset.id; });
+
+  try {
+    sessionStorage.setItem("package", pkg.name);
+    sessionStorage.setItem("destination", destinationNames[pkg.destinationId]);
+    showPackages(); // redraw the cards so the green button moves to this one
+  } catch (error) {
+    alert("Could not save your package: " + error.message);
+  }
 });
 
 // Load the packages and destination names, then show the cards

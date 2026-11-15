@@ -109,7 +109,15 @@ button.addEventListener("click",
             //date[3] and date[2] are the number of days
             let [yearIn,monthIn,dayIn]=date[2].split("-").map(Number);
             let [yearOut,monthOut,dayOut]=date[3].split("-").map(Number);
-            let days=dayOut-dayIn;
+
+            //Turns the dates into Date objects so trips across months/years count correctly
+            //(months start at 0 in JavaScript, so subtract 1)
+            let startDate=new Date(yearIn,monthIn-1,dayIn);
+            let endDate=new Date(yearOut,monthOut-1,dayOut);
+
+            //Subtracting dates gives milliseconds; divide by the milliseconds in one day
+            //Math.round handles the 1-hour shift from daylight saving time
+            let days=Math.round((endDate-startDate)/(1000*60*60*24));
             let text=" days";
             if(days==1)
             {
