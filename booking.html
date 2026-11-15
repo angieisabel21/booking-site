@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en"></html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Using Caleb's style for unity-->
     <link rel="stylesheet" href="css/home.css">
 
@@ -17,15 +18,15 @@
 
     <!--Nav bar for site-->
     <nav>
-        <h1>Book Your Trip</h1>
+        <h1>Travel Agency</h1>
         <div class="nav-links">
             <a href="rubric.html">Rubric</a>
             <a href="index.html">Home</a>
             <a href="destinations.html">Destinations</a>
-            <a href="fligts.html">Flights</a>
+            <a href="flights.html">Flights</a>
             <a href="hotels.html">Hotels</a>
             <a href="packages.html">Packages</a>
-            <a href="booking.html">Booking</a>
+            <a href="booking.html" class="active">Booking</a>
         </div>
     </nav>
     <section class="reminder">
@@ -40,24 +41,28 @@
     <h2>Ready To Confirm Your Trip</h2>
     <button class="confirm">Confirm Trip</button>
     <p id="dateChosen"></p>
+
+    <!--Trip summary with prices and total (filled in by showSummary() in booking.js)-->
+    <section class="summary" id="trip-summary"></section>
+
     <section>
-        <img id="logo" src="images/logo.jpg" width="1800px" height="400px">
+        <img id="logo" src="images/logo.jpg" alt="Travel Agency logo">
         <table class="check">
             <tr>
                 <td id="destValid">Check Destination</td>
-                <td><img src="images/cliffs_booking.jpg" width="400px" height="280px" id="img"></td>
+                <td><img src="images/cliffs_booking.jpg" width="400" height="280" class="trip-img" alt="Mountain cliffs - change destination"></td>
 
                 <td id="flightValid">Check Flight</td>
-                <td><img src="images/airline_booking.jpg" width="400px" height="280px" id="img"></td>                
+                <td><img src="images/airline_booking.jpg" width="400" height="280" class="trip-img" alt="Airplane - change flight"></td>                
             </tr>
             <tr>
                 <td id="hotelValid">Check Hotel</td>
-                <td><img src="images/hotel_booking.jpg" width="400px" height="280px" id="img"></td>
+                <td><img src="images/hotel_booking.jpg" width="400" height="280" class="trip-img" alt="Hotel - change hotel"></td>
 
                 <td id="planValid">Check Plan</td>
-                <td><img src="images/plan_booking.jpg" width="400px" height="280px" id="img"></td>                
+                <td><img src="images/plan_booking.jpg" width="400" height="280" class="trip-img" alt="Travel plan - change package"></td>                
             </tr>
         </table>
     </section>
 </body>
-  
+</html>

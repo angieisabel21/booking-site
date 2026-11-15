@@ -67,8 +67,102 @@ h2
     border:5px solid black;
 }
 
-#img:hover
+.trip-img:hover
 {
     transform:scale(1.05);
     cursor:pointer;
+}
+
+/*Logo fits the width of the page*/
+#logo
+{
+    display:block;
+    width:100%;
+    max-width:1800px;
+    height:auto;
+    margin:20px auto;
+}
+
+/*Trip summary box*/
+.summary
+{
+    max-width:900px;
+    margin:20px auto 30px;
+    padding:25px 30px;
+    background-color:white;
+    border-radius:15px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.10);
+}
+
+/*Hidden until Confirm Trip is clicked*/
+.summary:empty
+{
+    display:none;
+}
+
+.summary h2
+{
+    margin:0 0 15px;
+    color:#123c69;
+}
+
+.summary table
+{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.summary th,
+.summary td
+{
+    padding:12px 10px;
+    border-bottom:1px solid #e5ebf0;
+    text-align:left;
+}
+
+.summary th
+{
+    color:#123c69;
+    width:120px;
+}
+
+.summary .price
+{
+    text-align:right;
+    font-weight:bold;
+}
+
+.summary a
+{
+    color:#3282b8;
+    font-weight:bold;
+}
+
+/*Total row stands out*/
+.summary .total th,
+.summary .total td
+{
+    border-bottom:none;
+    font-size:20px;
+    color:#123c69;
+}
+
+/*Messages under the summary*/
+.summary .confirmed
+{
+    margin-top:15px;
+    padding:12px;
+    border-radius:7px;
+    background-color:#e3f4e5;
+    color:#2e7d32;
+    font-weight:bold;
+    text-align:center;
+}
+
+.summary .missing
+{
+    margin-top:15px;
+    color:#b42318;
+    font-weight:bold;
+    text-align:center;
 }
