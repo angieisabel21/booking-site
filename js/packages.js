@@ -105,7 +105,9 @@ packageList.addEventListener("click", function (event) {
   try {
     sessionStorage.setItem("package", pkg.name);
     sessionStorage.setItem("destination", destinationNames[pkg.destinationId]);
+    sessionStorage.setItem("destinationId", pkg.destinationId);
     showPackages(); // redraw the cards so the green button moves to this one
+    showSteps("packages.html"); // update the progress bar and show the Next button
   } catch (error) {
     alert("Could not save your package: " + error.message);
   }
@@ -131,6 +133,7 @@ Promise.all([
     }
 
     showPackages();
+    showSteps("packages.html");
   })
   .catch(function (error) {
     console.error(error);

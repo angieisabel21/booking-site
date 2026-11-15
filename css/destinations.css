@@ -81,30 +81,7 @@ Extra card details
   background-color: #ffc15a;
 }
 
-/* Navy outline button that saves the destination for the booking page */
-.select-button {
-  padding: 10px 22px;
-  border: 2px solid #123c69;
-  border-radius: 7px;
-  background-color: white;
-  color: #123c69;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.select-button:hover {
-  background-color: #123c69;
-  color: white;
-}
-
-/* After it's picked, the button turns green */
-.select-button.selected {
-  border-color: #2e7d32;
-  background-color: #2e7d32;
-  color: white;
-}
+/* .select-button styles are shared in css/steps.css */
 
 /* Message shown if the data can't load */
 .load-error {

@@ -8,7 +8,10 @@
 
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/hotels.css">
+  <link rel="stylesheet" href="css/steps.css">
 
+  <!-- steps.js must load first: it draws the progress bar and Next button -->
+  <script src="js/steps.js" defer></script>
   <script src="js/hotels.js" defer></script>
 </head>
 
@@ -28,13 +31,16 @@
     </div>
   </nav>
 
-  <section class="Promo">
+  <section class="Promo page-banner">
     <h2>Find Your Perfect Hotel</h2>
     <p>
       Explore hotels around the world and find
       the perfect place for your next vacation!
     </p>
   </section>
+
+  <!-- Booking progress bar (filled in by js/steps.js) -->
+  <div class="step-progress" id="step-progress"></div>
 
   <main class="hotels-section">
 
@@ -78,6 +84,9 @@
     <div class="hotel-container" id="hotel-list">
       <!-- Hotel cards will be added with JavaScript -->
     </div>
+
+    <!-- "Next: Choose a package" button appears here after a hotel is picked -->
+    <div class="next-step" id="next-step"></div>
 
   </main>
 

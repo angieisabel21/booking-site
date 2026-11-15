@@ -1,1 +1,56 @@
-<!--Note Klay added this page just so the links would work-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--Note Klay added this page just so the links would work-->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Agency | Flights</title>
+
+  <!-- Shared look from the home page, then this page's styles and the booking steps styles -->
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/flights.css">
+  <link rel="stylesheet" href="css/steps.css">
+
+  <!-- steps.js must load first: it draws the progress bar and Next button -->
+  <script src="js/steps.js" defer></script>
+  <script src="js/flights.js" defer></script>
+</head>
+
+<body>
+  <nav>
+    <h1>Travel Agency</h1>
+
+    <div class="nav-links">
+      <a href="rubric.html">Rubric</a>
+      <a href="index.html">Home</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="flights.html" class="active">Flights</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="packages.html">Packages</a>
+      <a href="booking.html">Booking</a>
+    </div>
+  </nav>
+
+  <section class="Promo page-banner">
+    <h2>Flights</h2>
+    <p>Compare flights to your destination and pick the one that works for you.</p>
+  </section>
+
+  <!-- Booking progress bar (filled in by js/steps.js) -->
+  <div class="step-progress" id="step-progress"></div>
+
+  <section class="page-section">
+    <h2>Choose your flight</h2>
+
+    <!-- Says which destination the flights are for (filled in by js/flights.js) -->
+    <p class="flight-note" id="flight-note"></p>
+
+    <!-- Flight cards go here (built by js/flights.js from data/flights.json) -->
+    <div class="destination-container" id="flight-list"></div>
+
+    <!-- "Next: Choose your hotel" button appears here after a flight is picked -->
+    <div class="next-step" id="next-step"></div>
+  </section>
+</body>
+</html>

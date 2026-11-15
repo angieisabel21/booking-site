@@ -18,16 +18,6 @@ form.addEventListener("submit",
                 sessionStorage.setItem("checkout",checkin.value);
                 sessionStorage.setItem("checkin",checkout.value);
 
-                //Site Test
-                
-                sessionStorage.setItem("destination","Mexico");
-                sessionStorage.setItem("airline","United");
-                sessionStorage.setItem("package","Delux");
-                sessionStorage.setItem("hotel","Grand Hotel");
-                
-
-
-
                 //Quick error explanation
                 alert("Checkout was before the Checkin: Dates swapped");
             }
@@ -35,7 +25,10 @@ form.addEventListener("submit",
             {
                 sessionStorage.setItem("checkin",checkin.value);
                 sessionStorage.setItem("checkout",checkout.value);
-            }     
+            }
+
+            //Dates are saved, so move on to the next booking step
+            window.location.href="destinations.html";
         }
         catch(error)
         {

@@ -1,0 +1,113 @@
+/*=========================================
+Booking steps styling
+Shared by the Destinations, Flights, Hotels and Packages pages
+(goes with js/steps.js)
+=========================================*/
+
+/* Progress bar under the banner */
+.step-progress {
+  max-width: 1100px;
+  margin: 30px auto 0;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.step-count {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #607180;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.step-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.step-list a {
+  display: block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: #e5ebf0;
+  color: #607180;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Steps the visitor already finished */
+.step-list .done a {
+  background-color: #e3f4e5;
+  color: #2e7d32;
+}
+
+/* The step the visitor is on now */
+.step-list .current a {
+  background-color: #123c69;
+  color: white;
+}
+
+/*=========================================
+"Select" buttons on the cards
+=========================================*/
+
+.select-button {
+  padding: 10px 22px;
+  border: 2px solid #123c69;
+  border-radius: 7px;
+  background-color: white;
+  color: #123c69;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.select-button:hover {
+  background-color: #123c69;
+  color: white;
+}
+
+/* After it's picked, the button turns green */
+.select-button.selected {
+  border-color: #2e7d32;
+  background-color: #2e7d32;
+  color: white;
+}
+
+/*=========================================
+"Next" button
+Sticks to the bottom of the screen so it's easy to find after scrolling
+=========================================*/
+
+.next-step {
+  position: sticky;
+  bottom: 20px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.next-step:empty {
+  display: none;
+}
+
+.next-button {
+  display: inline-block;
+  padding: 15px 34px;
+  border-radius: 30px;
+  background-color: #f5a623;
+  color: #172b40;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.next-button:hover {
+  background-color: #ffc15a;
+  transform: translateY(-3px);
+}

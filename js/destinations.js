@@ -60,7 +60,7 @@ function destinationCard(destination, hotels, flights) {
       <p>${destination.description}</p>
       <p class="prices">${priceParts.join(" · ")}</p>
       <div class="card-actions">
-        <button type="button" class="select-button" data-name="${destination.name}">Select destination</button>
+        <button type="button" class="select-button" data-name="${destination.name}" data-id="${destination.id}">Select destination</button>
         <a class="card-button" href="packages.html?destination=${destination.id}">View packages</a>
       </div>
     </div>`;
@@ -91,7 +91,10 @@ destinationList.addEventListener("click", function (event) {
 
   try {
     sessionStorage.setItem("destination", button.dataset.name);
+    // The id (e.g. "italy") lets the Flights, Hotels and Packages pages show matching options
+    sessionStorage.setItem("destinationId", button.dataset.id);
     showSelected();
+    showSteps("destinations.html"); // update the progress bar and show the Next button
   } catch (error) {
     alert("Could not save your destination: " + error.message);
   }
@@ -114,6 +117,7 @@ Promise.all([
 
     // Highlight the destination picked on an earlier visit
     showSelected();
+    showSteps("destinations.html");
   })
   .catch(function (error) {
     console.error(error);
