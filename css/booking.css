@@ -1,70 +1,129 @@
-/*Link Section details*/
-.reminder
+/*=========================================
+Booking page styling
+(nav, .Promo banner come from home.css;
+progress bar comes from steps.css)
+=========================================*/
+
+/*Shorter banner, same as the other step pages*/
+.page-banner
 {
-    margin-left:50px;
-    display:flex;
-    justify-content:space-between;
+    min-height:0;
+    padding:60px 25px;
 }
 
-/*Body details*/
-body
+.page-banner p
 {
-    border-right:50px solid #123c69;
-    border-left:50px solid #123c69;
-
+    margin-bottom:0;
 }
 
-/*Date Chosen details*/
-#dateChosen
+/*Main section*/
+.page-section
 {
-    margin-left:30px;
-    text-decoration-line:underline;
-    color:black;
+    max-width:1100px;
+    margin:0 auto;
+    padding:40px 25px 80px;
     text-align:center;
-} 
+}
+
+/*H2 details*/
+.page-section h2
+{
+    font-size:36px;
+    color:#123c69;
+    margin:10px 0 25px;
+}
+
+/*Link Section details*/
+.reminder ul
+{
+    list-style:none;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:20px;
+}
 
 /*Links details*/
 .reminder a
 {
-    color:black;
+    display:block;
+    padding:8px 16px;
+    border:1px solid #d1d9e0;
+    border-radius:20px;
+    background-color:white;
+    color:#123c69;
+    font-size:14px;
 }
 
 /*Links hover*/
 .reminder a:hover
 {
-    outline:auto;
-    outline-color:green;
+    border-color:#2e7d32;
+    color:#2e7d32;
 }
 
-/*Button details*/
+/*Button details: orange, same as the home page search button*/
 .confirm
 {
-    margin-left:30px;
-    width:auto;
-    height:30px;
+    padding:14px 36px;
+    border:none;
+    border-radius:7px;
+    background-color:#f5a623;
+    color:#172b40;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:background-color 0.3s ease, transform 0.3s ease;
 }
 
 /*Button hover*/
 .confirm:hover
 {
-    background-color:green;
+    background-color:#ffc15a;
+    transform:translateY(-3px);
 }
 
-/*H2 details*/
-h2
+/*Date Chosen details*/
+#dateChosen
 {
-    text-align:left;
-    margin-left:30px;
+    margin:20px 0;
+    color:#123c69;
+    font-weight:bold;
 }
 
-/*Table details*/
+/*Logo fits the width of the page*/
+#logo
+{
+    display:block;
+    width:100%;
+    max-width:900px;
+    height:auto;
+    margin:20px auto;
+    border-radius:15px;
+}
+
+/*Table details: white card like the rest of the site*/
 .check
 {
-    visibility: hidden;
-    display:flex;
-    justify-content:center;
-    border-spacing:30px;
-    border:5px solid black;
+    visibility:hidden;
+    width:100%;
+    margin:0 auto;
+    padding:10px;
+    border-spacing:20px;
+    background-color:white;
+    border-radius:15px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.10);
+    font-weight:bold;
+}
+
+/*Pictures shrink to fit their column*/
+.trip-img
+{
+    width:100%;
+    height:auto;
+    border-radius:10px;
+    transition:transform 0.3s ease;
 }
 
 .trip-img:hover
@@ -73,28 +132,22 @@ h2
     cursor:pointer;
 }
 
-/*Logo fits the width of the page*/
-#logo
-{
-    display:block;
-    width:100%;
-    max-width:1800px;
-    height:auto;
-    margin:20px auto;
-}
+/*=========================================
+Trip summary box
+=========================================*/
 
-/*Trip summary box*/
 .summary
 {
     max-width:900px;
-    margin:20px auto 30px;
+    margin:0 auto 30px;
     padding:25px 30px;
     background-color:white;
     border-radius:15px;
     box-shadow:0 6px 20px rgba(0,0,0,0.10);
+    text-align:left;
 }
 
-/*Hidden until Confirm Trip is clicked*/
+/*Hidden until there is something to show*/
 .summary:empty
 {
     display:none;
@@ -103,6 +156,7 @@ h2
 .summary h2
 {
     margin:0 0 15px;
+    font-size:26px;
     color:#123c69;
 }
 
@@ -148,15 +202,26 @@ h2
 }
 
 /*Messages under the summary*/
-.summary .confirmed
+.summary .confirmed,
+.summary .ready
 {
     margin-top:15px;
     padding:12px;
     border-radius:7px;
-    background-color:#e3f4e5;
-    color:#2e7d32;
     font-weight:bold;
     text-align:center;
+}
+
+.summary .confirmed
+{
+    background-color:#e3f4e5;
+    color:#2e7d32;
+}
+
+.summary .ready
+{
+    background-color:#e3f2fd;
+    color:#215f91;
 }
 
 .summary .missing
@@ -165,4 +230,43 @@ h2
     color:#b42318;
     font-weight:bold;
     text-align:center;
+}
+
+/*=========================================
+Phone / small screens
+=========================================*/
+
+@media (max-width:700px)
+{
+    /*Stack the check table: each label sits above its picture*/
+    .check,
+    .check tbody,
+    .check tr,
+    .check td
+    {
+        display:block;
+    }
+
+    .check td
+    {
+        margin-bottom:10px;
+    }
+
+    /*Summary table text a bit smaller*/
+    .summary
+    {
+        padding:20px 15px;
+    }
+
+    .summary th,
+    .summary td
+    {
+        padding:10px 5px;
+        font-size:14px;
+    }
+
+    .summary th
+    {
+        width:auto;
+    }
 }

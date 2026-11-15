@@ -164,8 +164,8 @@ button.addEventListener("click",
             document.querySelector(".check").style.visibility="visible";
             document.getElementById("logo").style.display="none";
 
-            //Shows the trip summary with prices and the total
-            showSummary();
+            //Shows the trip summary with prices and the total (true = trip is confirmed)
+            showSummary(true);
         }
     }
 );
@@ -204,7 +204,8 @@ function summaryRow(label, details, price, changePage)
         "</tr>";
 }
 
-async function showSummary()
+//confirmed is true after Confirm Trip is clicked, false when the page first opens
+async function showSummary(confirmed)
 {
     let summary=document.getElementById("trip-summary");
 
@@ -275,11 +276,15 @@ async function showSummary()
             rows+=summaryRow("Package", "Not chosen yet", "", "packages.html");
         }
 
-        //Message at the bottom: confirmed if everything is chosen
+        //Message at the bottom
         let message="";
-        if(destination&&flight&&hotel&&tripPackage)
+        if(destination&&flight&&hotel&&tripPackage&&confirmed)
         {
             message="<p class='confirmed'>Your trip is confirmed! Have a great time in "+destination+".</p>";
+        }
+        else if(destination&&flight&&hotel&&tripPackage)
+        {
+            message="<p class='ready'>Everything is picked! Click Confirm Trip below to book it.</p>";
         }
         else
         {
@@ -297,4 +302,17 @@ async function showSummary()
     {
         summary.innerHTML="<p class='missing'>Could not load your trip details: "+error.message+"</p>";
     }
+}
+
+//=========================================
+//When the page opens
+//=========================================
+
+//Draws the "Step 6 of 6" progress bar (from steps.js)
+showSteps("booking.html");
+
+//If every step is already picked, show the summary right away
+if(getDate()[1]&&getDestination()[1]&&getAirline()[1]&&getHotel()[1]&&getPackage()[1])
+{
+    showSummary(false);
 }
