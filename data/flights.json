@@ -10,16 +10,6 @@
     "price": 720
   },
   {
-    "id": "fl-102",
-    "from": "Atlanta (ATL)",
-    "to": "Rome (FCO)",
-    "destinationId": "italy",
-    "airline": "SkyWay Airlines",
-    "departure": "2026-12-15T17:10",
-    "arrival": "2026-12-16T08:20",
-    "price": 840
-  },
-  {
     "id": "fl-202",
     "from": "Chicago (ORD)",
     "to": "Cancún (CUN)",
@@ -30,16 +20,6 @@
     "price": 410
   },
   {
-    "id": "fl-203",
-    "from": "Atlanta (ATL)",
-    "to": "Cancún (CUN)",
-    "destinationId": "mexico",
-    "airline": "Coastal Air",
-    "departure": "2026-12-20T11:40",
-    "arrival": "2026-12-20T13:15",
-    "price": 360
-  },
-  {
     "id": "fl-303",
     "from": "Dallas (DFW)",
     "to": "Los Angeles (LAX)",
@@ -48,15 +28,5 @@
     "departure": "2026-12-18T07:45",
     "arrival": "2026-12-18T08:50",
     "price": 230
-  },
-  {
-    "id": "fl-304",
-    "from": "Atlanta (ATL)",
-    "to": "Los Angeles (LAX)",
-    "destinationId": "california",
-    "airline": "SkyWay Airlines",
-    "departure": "2026-12-18T10:05",
-    "arrival": "2026-12-18T11:55",
-    "price": 310
   }
 ]

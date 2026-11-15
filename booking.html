@@ -1,88 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"></html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Using Caleb's style for unity-->
     <link rel="stylesheet" href="css/home.css">
-
-    <!--Shared progress bar style (same as the other booking steps)-->
-    <link rel="stylesheet" href="css/steps.css">
 
     <!--Custom page style-->
     <link rel="stylesheet" href="css/booking.css">
 
-    <!--steps.js must load first: it draws the progress bar-->
-    <script src="js/steps.js" defer></script>
     <script src="js/booking.js" defer></script>
-
-    <title>Travel Agency | Book Your Trip</title>
+    
+    <title>Book Your Trip</title>
 </head>
 <body>
-
+    
 
     <!--Nav bar for site-->
     <nav>
-        <h1>Travel Agency</h1>
+        <h1>Book Your Trip</h1>
         <div class="nav-links">
             <a href="rubric.html">Rubric</a>
             <a href="index.html">Home</a>
             <a href="destinations.html">Destinations</a>
-            <a href="flights.html">Flights</a>
+            <a href="fligts.html">Flights</a>
             <a href="hotels.html">Hotels</a>
             <a href="packages.html">Packages</a>
-            <a href="booking.html" class="active">Booking</a>
+            <a href="booking.html">Booking</a>
         </div>
     </nav>
-
-    <!--Banner, same as the other pages-->
-    <section class="Promo page-banner">
-        <h2>Book Your Trip</h2>
-        <p>Review everything you picked, then confirm your trip.</p>
+    <section class="reminder">
+        <!--Quick reminder-->
+        <ul>
+            <li id="destination"><a href="destinations.html">Need to book your destination?</a></li>
+            <li id="hotel"><a href="hotels.html">Need to book your hotel?</a></li>
+            <li id="flight"><a href="flights.html">Need to book your flight?</a></li>
+            <li id="package"><a href="packages.html">Need to book your package?</a></li>
+        </ul>
     </section>
+    <h2>Ready To Confirm Your Trip</h2>
+    <button class="confirm">Confirm Trip</button>
+    <p id="dateChosen"></p>
+    <section>
+        <img id="logo" src="images/logo.jpg" width="1800px" height="400px">
+        <table class="check">
+            <tr>
+                <td id="destValid">Check Destination</td>
+                <td><img src="images/cliffs_booking.jpg" width="400px" height="280px" id="img"></td>
 
-    <!--Booking progress bar (filled in by js/steps.js)-->
-    <div class="step-progress" id="step-progress"></div>
+                <td id="flightValid">Check Flight</td>
+                <td><img src="images/airline_booking.jpg" width="400px" height="280px" id="img"></td>                
+            </tr>
+            <tr>
+                <td id="hotelValid">Check Hotel</td>
+                <td><img src="images/hotel_booking.jpg" width="400px" height="280px" id="img"></td>
 
-    <main class="page-section">
-        <section class="reminder">
-            <!--Quick reminder-->
-            <ul>
-                <li id="destination"><a href="destinations.html">Need to book your destination?</a></li>
-                <li id="hotel"><a href="hotels.html">Need to book your hotel?</a></li>
-                <li id="flight"><a href="flights.html">Need to book your flight?</a></li>
-                <li id="package"><a href="packages.html">Need to book your package?</a></li>
-            </ul>
-        </section>
-
-        <h2>Ready To Confirm Your Trip</h2>
-
-        <!--Trip summary with prices and total (filled in by showSummary() in booking.js)-->
-        <!--Shows on its own once every step is picked-->
-        <section class="summary" id="trip-summary"></section>
-
-        <button class="confirm">Confirm Trip</button>
-        <p id="dateChosen"></p>
-
-        <section>
-            <img id="logo" src="images/logo.jpg" alt="Travel Agency logo">
-            <table class="check">
-                <tr>
-                    <td id="destValid">Check Destination</td>
-                    <td><img src="images/cliffs_booking.jpg" width="400" height="280" class="trip-img" alt="Mountain cliffs - change destination"></td>
-
-                    <td id="flightValid">Check Flight</td>
-                    <td><img src="images/airline_booking.jpg" width="400" height="280" class="trip-img" alt="Airplane - change flight"></td>
-                </tr>
-                <tr>
-                    <td id="hotelValid">Check Hotel</td>
-                    <td><img src="images/hotel_booking.jpg" width="400" height="280" class="trip-img" alt="Hotel - change hotel"></td>
-
-                    <td id="planValid">Check Plan</td>
-                    <td><img src="images/plan_booking.jpg" width="400" height="280" class="trip-img" alt="Travel plan - change package"></td>
-                </tr>
-            </table>
-        </section>
-    </main>
+                <td id="planValid">Check Plan</td>
+                <td><img src="images/plan_booking.jpg" width="400px" height="280px" id="img"></td>                
+            </tr>
+        </table>
+    </section>
 </body>
-</html>
+  

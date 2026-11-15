@@ -8,10 +8,7 @@
   <!-- using the stylesheet caleb already did but adding more styles  -->
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/packages.css">
-  <link rel="stylesheet" href="css/steps.css">
 
-  <!-- steps.js must load first: it draws the progress bar and Next button -->
-  <script src="js/steps.js" defer></script>
   <script src="js/packages.js" defer></script>
 </head>
 
@@ -35,9 +32,6 @@
     <p>Cruises, resorts, honeymoons and family vacations, with everything planned for you.</p>
   </section>
 
-  <!-- Booking progress bar (filled in by js/steps.js) -->
-  <div class="step-progress" id="step-progress"></div>
-
   <section class="page-section">
     <h2>Find your package</h2>
 
@@ -55,9 +49,6 @@
 
     <!-- Cards go here -->
     <div class="destination-container" id="package-list"></div>
-
-    <!-- "Next: Review and book your trip" button appears here after a package is picked -->
-    <div class="next-step" id="next-step"></div>
   </section>
 </body>
 </html>

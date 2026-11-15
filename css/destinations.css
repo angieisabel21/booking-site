@@ -57,18 +57,10 @@ Extra card details
   flex-grow: 0;
 }
 
-/* Row holding the "Select destination" and "View packages" buttons */
-.card-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin: 0 25px 30px;
-}
-
 /* Orange button, same colors as the home page search button */
 .card-button {
   display: inline-block;
+  margin: 0 25px 30px;
   padding: 12px 24px;
   border-radius: 7px;
   background-color: #f5a623;
@@ -80,8 +72,6 @@ Extra card details
 .card-button:hover {
   background-color: #ffc15a;
 }
-
-/* .select-button styles are shared in css/steps.css */
 
 /* Message shown if the data can't load */
 .load-error {

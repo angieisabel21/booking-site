@@ -90,7 +90,7 @@ button.addEventListener("click",
         //Makes imgs hyperlinks
         let location=["destinations.html","flights.html","hotels.html","packages.html"]
 
-        let img=document.querySelectorAll(".trip-img");
+        let img=document.querySelectorAll("#img");
         for(let i=0;i<img.length;i++)
         {
             img[i].addEventListener("click",
@@ -109,15 +109,7 @@ button.addEventListener("click",
             //date[3] and date[2] are the number of days
             let [yearIn,monthIn,dayIn]=date[2].split("-").map(Number);
             let [yearOut,monthOut,dayOut]=date[3].split("-").map(Number);
-
-            //Turns the dates into Date objects so trips across months/years count correctly
-            //(months start at 0 in JavaScript, so subtract 1)
-            let startDate=new Date(yearIn,monthIn-1,dayIn);
-            let endDate=new Date(yearOut,monthOut-1,dayOut);
-
-            //Subtracting dates gives milliseconds; divide by the milliseconds in one day
-            //Math.round handles the 1-hour shift from daylight saving time
-            let days=Math.round((endDate-startDate)/(1000*60*60*24));
+            let days=dayOut-dayIn;
             let text=" days";
             if(days==1)
             {
@@ -162,175 +154,7 @@ button.addEventListener("click",
 
             //Hides the logo and shows the images plus the users choice
             document.querySelector(".check").style.visibility="visible";
-            document.querySelector(".check").style.display="table";
             document.getElementById("logo").style.display="none";
-
-            //Shows the trip summary with prices and the total (true = trip is confirmed)
-            showSummary(true);
         }
     }
 );
-
-//=========================================
-//Trip summary
-//Looks up the full details of each choice in the JSON files
-//and shows them with prices and a total
-//=========================================
-
-//Loads a JSON file from the data folder
-async function loadJson(path)
-{
-    let response=await fetch(path);
-    if(!response.ok)
-    {
-        throw new Error("Could not load "+path);
-    }
-    return response.json();
-}
-
-//Turns 1200 into "$1,200"
-function formatPrice(amount)
-{
-    return "$"+amount.toLocaleString("en-US");
-}
-
-//Builds one row of the summary: what it is, the details, the price and a Change link
-function summaryRow(label, details, price, changePage)
-{
-    return "<tr>"+
-        "<th>"+label+"</th>"+
-        "<td>"+details+"</td>"+
-        "<td class='price'>"+price+"</td>"+
-        "<td><a href='"+changePage+"'>Change</a></td>"+
-        "</tr>";
-}
-
-//confirmed is true after Confirm Trip is clicked, false when the page first opens
-async function showSummary(confirmed)
-{
-    let summary=document.getElementById("trip-summary");
-
-    try
-    {
-        //Load the data files
-        let flights=await loadJson("data/flights.json");
-        let hotels=await loadJson("data/hotels.json");
-        let packages=await loadJson("data/packages.json");
-
-        //Find each saved choice in the data (undefined if not chosen yet)
-        let flight=flights.find(f => f.id===sessionStorage.getItem("flightId"));
-        let hotel=hotels.find(h => h.id===sessionStorage.getItem("hotelId"));
-        let tripPackage=packages.find(p => p.name===sessionStorage.getItem("package"));
-        let destination=sessionStorage.getItem("destination");
-
-        //Number of nights from the saved dates
-        let date=getDate();
-        let nights=0;
-        if(date[1])
-        {
-            nights=Math.round((new Date(date[3])-new Date(date[2]))/(1000*60*60*24));
-        }
-
-        let total=0;
-        let rows="";
-
-        //Dates
-        if(date[1])
-        {
-            rows+=summaryRow("Dates", date[2]+" to "+date[3]+" ("+nights+" nights)", "", "index.html");
-        }
-        else
-        {
-            rows+=summaryRow("Dates", "Not chosen yet", "", "index.html");
-        }
-
-        //Destination
-        if(destination)
-        {
-            rows+=summaryRow("Destination", destination, "", "destinations.html");
-        }
-        else
-        {
-            rows+=summaryRow("Destination", "Not chosen yet", "", "destinations.html");
-        }
-
-        //Flight
-        if(flight)
-        {
-            rows+=summaryRow("Flight", flight.airline+": "+flight.from+" → "+flight.to, formatPrice(flight.price), "flights.html");
-            total=total+flight.price;
-        }
-        else
-        {
-            rows+=summaryRow("Flight", "Not chosen yet", "", "flights.html");
-        }
-
-        //Hotel: price per night times the number of nights
-        if(hotel)
-        {
-            let hotelCost=hotel.pricePerNight*nights;
-            rows+=summaryRow("Hotel", hotel.name+" ("+formatPrice(hotel.pricePerNight)+" × "+nights+" nights)", formatPrice(hotelCost), "hotels.html");
-            total=total+hotelCost;
-        }
-        else
-        {
-            rows+=summaryRow("Hotel", "Not chosen yet", "", "hotels.html");
-        }
-
-        //Package
-        if(tripPackage)
-        {
-            rows+=summaryRow("Package", tripPackage.name, formatPrice(tripPackage.pricePerPerson), "packages.html");
-            total=total+tripPackage.pricePerPerson;
-        }
-        else
-        {
-            rows+=summaryRow("Package", "Not chosen yet", "", "packages.html");
-        }
-
-        //Message at the bottom
-        let message="";
-        if(destination&&flight&&hotel&&tripPackage&&confirmed)
-        {
-            message="<p class='confirmed'>Your trip is confirmed! Have a great time in "+destination+".</p>";
-        }
-        else if(destination&&flight&&hotel&&tripPackage)
-        {
-            message="<p class='ready'>Everything is picked! Click Confirm Trip below to book it.</p>";
-        }
-        else
-        {
-            message="<p class='missing'>Pick the items marked \"Not chosen yet\" to finish your booking.</p>";
-        }
-
-        summary.innerHTML=
-            "<h2>Trip Summary</h2>"+
-            "<table>"+rows+
-            "<tr class='total'><th>Total</th><td>Per traveler</td><td class='price'>"+formatPrice(total)+"</td><td></td></tr>"+
-            "</table>"+
-            message;
-    }
-    catch(error)
-    {
-        summary.innerHTML="<p class='missing'>Could not load your trip details: "+error.message+"</p>";
-    }
-}
-
-//=========================================
-//When the page opens
-//=========================================
-
-//Draws the "Step 6 of 6" progress bar (from steps.js)
-showSteps("booking.html");
-
-//Show the summary right away (no need to click Confirm Trip first)
-showSummary(false);
-
-//The summary takes the logo's place
-document.getElementById("logo").style.display="none";
-
-//Only show the "Need to book...?" reminders for things that aren't picked yet
-if(getDestination()[1]){document.getElementById("destination").style.display="none";}
-if(getHotel()[1]){document.getElementById("hotel").style.display="none";}
-if(getAirline()[1]){document.getElementById("flight").style.display="none";}
-if(getPackage()[1]){document.getElementById("package").style.display="none";}

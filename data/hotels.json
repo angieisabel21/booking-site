@@ -3,122 +3,27 @@
     "id": "hotel-roma-centro",
     "name": "Hotel Roma Centro",
     "destinationId": "italy",
-    "category": "mid-range",
     "stars": 4,
     "pricePerNight": 190,
-    "image": "images/hotel_booking.jpg",
-    "amenities": [
-      "Free Wi-Fi",
-      "Breakfast included",
-      "Air conditioning"
-    ]
-  },
-  {
-    "id": "palazzo-venezia-grand",
-    "name": "Palazzo Venezia Grand",
-    "destinationId": "italy",
-    "category": "luxury",
-    "stars": 5,
-    "pricePerNight": 420,
-    "image": "images/hotel_booking.jpg",
-    "amenities": [
-      "Rooftop pool",
-      "Spa",
-      "Breakfast included"
-    ]
-  },
-  {
-    "id": "trastevere-hostel",
-    "name": "Trastevere Guesthouse",
-    "destinationId": "italy",
-    "category": "budget",
-    "stars": 2,
-    "pricePerNight": 85,
-    "image": "images/hotel_booking.jpg",
-    "amenities": [
-      "Free Wi-Fi",
-      "Shared kitchen"
-    ]
+    "image": "images/hotel-roma-centro.jpg",
+    "amenities": ["Free Wi-Fi", "Breakfast included", "Air conditioning"]
   },
   {
     "id": "cancun-beach-resort",
     "name": "Cancún Beach Resort",
     "destinationId": "mexico",
-    "category": "luxury",
     "stars": 5,
     "pricePerNight": 240,
-    "image": "images/hotel_booking.jpg",
-    "amenities": [
-      "Beachfront",
-      "Pool",
-      "All-inclusive"
-    ]
-  },
-  {
-    "id": "playa-del-carmen-inn",
-    "name": "Playa del Carmen Inn",
-    "destinationId": "mexico",
-    "category": "mid-range",
-    "stars": 3,
-    "pricePerNight": 135,
-    "image": "images/hotel_booking.jpg",
-    "amenities": [
-      "Pool",
-      "Free Wi-Fi",
-      "Near the beach"
-    ]
-  },
-  {
-    "id": "tulum-budget-stay",
-    "name": "Tulum Budget Stay",
-    "destinationId": "mexico",
-    "category": "budget",
-    "stars": 2,
-    "pricePerNight": 70,
-    "image": "images/hotel_booking.jpg",
-    "amenities": [
-      "Free Wi-Fi",
-      "Bike rental"
-    ]
+    "image": "images/cancun-beach-resort.jpg",
+    "amenities": ["Beachfront", "Pool", "All-inclusive"]
   },
   {
     "id": "santa-monica-inn",
     "name": "Santa Monica Inn",
     "destinationId": "california",
-    "category": "mid-range",
     "stars": 3,
     "pricePerNight": 160,
-    "image": "images/hotel_booking.jpg",
-    "amenities": [
-      "Free parking",
-      "Free Wi-Fi"
-    ]
-  },
-  {
-    "id": "beverly-hills-palms",
-    "name": "Beverly Hills Palms",
-    "destinationId": "california",
-    "category": "luxury",
-    "stars": 5,
-    "pricePerNight": 480,
-    "image": "images/hotel_booking.jpg",
-    "amenities": [
-      "Spa",
-      "Pool",
-      "Valet parking"
-    ]
-  },
-  {
-    "id": "venice-beach-hostel",
-    "name": "Venice Beach Hostel",
-    "destinationId": "california",
-    "category": "budget",
-    "stars": 2,
-    "pricePerNight": 75,
-    "image": "images/hotel_booking.jpg",
-    "amenities": [
-      "Free Wi-Fi",
-      "Beach access"
-    ]
+    "image": "images/santa-monica-inn.jpg",
+    "amenities": ["Free parking", "Free Wi-Fi"]
   }
 ]
