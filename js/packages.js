@@ -39,6 +39,16 @@ function packageCard(pkg) {
     .map(function (item) { return `<li>${item}</li>`; })
     .join("");
 
+  // Show a green "Selected ✓" button on the package the visitor picked
+  let isSelected = false;
+  try {
+    isSelected = pkg.name === sessionStorage.getItem("package");
+  } catch (error) {
+    isSelected = false;
+  }
+  const buttonText = isSelected ? "Selected ✓" : "Select package";
+  const buttonClass = isSelected ? "select-button selected" : "select-button";
+
   return `
     <div class="card">
       <span class="badge">${typeLabels[pkg.type]}</span>
@@ -48,6 +58,7 @@ function packageCard(pkg) {
       <p>${pkg.description}</p>
       <ul>${includesList}</ul>
       <p class="price">From <strong>${formatPrice(pkg.pricePerPerson)}</strong> per person</p>
+      <button type="button" class="${buttonClass}" data-name="${pkg.name}">${buttonText}</button>
     </div>`;
 }
 
@@ -75,6 +86,23 @@ filterButtons.forEach(function (button) {
     selectedType = button.dataset.type;
     showPackages();
   });
+});
+
+// When a "Select package" button is clicked, save it so booking.html can show it
+packageList.addEventListener("click", function (event) {
+  const button = event.target.closest(".select-button");
+  if (!button) {
+    return; // the click wasn't on a select button
+  }
+
+  try {
+    sessionStorage.setItem("package", button.dataset.name);
+
+    // Package is saved, so move on to the booking page
+    window.location.href = "booking.html";
+  } catch (error) {
+    alert("Could not save your package: " + error.message);
+  }
 });
 
 // Load the packages and destination names, then show the cards
