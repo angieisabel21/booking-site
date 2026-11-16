@@ -87,15 +87,6 @@ Promise.all([
 
     results[1].forEach(function (destination) {
       destinationNames[destination.id] = destination.name;
-      
-      results[0].addEventListener("click",function()
-      {
-        sessionStorage.add("package",results[i]);
-      }
-    );
-
-
-
     });
 
     // If we came from the Destinations page, say which destination is shown

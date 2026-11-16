@@ -75,6 +75,7 @@ button.addEventListener("click",
         airlineEl=document.getElementById("flightValid");
 
         //Adds style to them
+        /*
         airlineEl.textContent=airline[0];
         airlineEl.style.textDecorationLine="underline";
 
@@ -82,7 +83,7 @@ button.addEventListener("click",
         destinationEl.style.textDecorationLine="underline";
 
         hotelEl.textContent=hotel[0];
-        hotelEl.style.textDecorationLine="underline";
+        hotelEl.style.textDecorationLine="underline";*/
 
         packageEl.textContent=package[0];
         packageEl.style.textDecorationLine="underline";
@@ -137,18 +138,6 @@ button.addEventListener("click",
         }
         else
         {
-            //Each if statement highlights what the user hasn't selected
-            //Each else if statement highlights what the user has selected
-
-            if(!airline[1]){airlineEl.style.color="red"}
-            else if(airline[1]){airlineEl.style.color="green"}
-
-            if(!destination[1]){destinationEl.style.color="red"}
-            else if(destination[1]){destinationEl.style.color="green"}
-
-            if(!hotel[1]){hotelEl.style.color="red"}
-            else if(hotel[1]){hotelEl.style.color="green"}
-
             if(!package[1]){packageEl.style.color="red"}
             else if(package[1]){packageEl.style.color="green"}
 
