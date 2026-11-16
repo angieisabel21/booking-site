@@ -1,34 +1,3 @@
-function getDestination()
-{
-    //Verifies destination is seleceted
-    let destination=sessionStorage.getItem("destination");
-    if(destination===null)
-    {
-        return["No Destination",false]
-    }
-    else return[destination,true]
-    
-}
-function getAirline()
-{
-    //Verfies airline is selected
-    let airline=sessionStorage.getItem("airline");
-    if(airline===null)
-    {
-        return["No Airline",false]
-    }
-    else return[airline,true]
-}
-function getHotel()
-{
-    //Verifies hotel is seleted
-    let hotel=sessionStorage.getItem("hotel");
-    if(hotel===null)
-    {
-        return["No Hotel",false]
-    }
-    else return[hotel,true]
-}
 function getPackage()
 {
     //Verifies package is selected
@@ -37,11 +6,10 @@ function getPackage()
     {
         return["No Package",false]
     }
-    else return[package, true]
+    else return["Your Package is: "+package, true]
 
     
 }
-
 function getDate()
 {
     //Verify dates
@@ -62,9 +30,7 @@ button.addEventListener("click",
     { 
         //Gets data from thew following functions and stores as an array
         //the array is as follows variable[0]=data and variable[1]=true or false  
-        let airline=getAirline();
-        let destination=getDestination();
-        let hotel=getHotel();
+
         let package=getPackage();
         let date=getDate();
 
@@ -74,35 +40,9 @@ button.addEventListener("click",
         destinationEl=document.getElementById("destValid");
         airlineEl=document.getElementById("flightValid");
 
-        //Adds style to them
-        /*
-        airlineEl.textContent=airline[0];
-        airlineEl.style.textDecorationLine="underline";
-
-        destinationEl.textContent=destination[0];
-        destinationEl.style.textDecorationLine="underline";
-
-        hotelEl.textContent=hotel[0];
-        hotelEl.style.textDecorationLine="underline";*/
 
         packageEl.textContent=package[0];
         packageEl.style.textDecorationLine="underline";
-
-        //Makes imgs hyperlinks
-        let location=["destinations.html","flights.html","hotels.html","packages.html"]
-
-        let img=document.querySelectorAll("#img");
-        for(let i=0;i<img.length;i++)
-        {
-            img[i].addEventListener("click",
-                function()
-                {
-                    window.location.href=location[i];
-                }
-            );
-        }
-
-
 
         //Check if the date is chosen
         if(date[1])
@@ -122,10 +62,7 @@ button.addEventListener("click",
             }
 
              //If chosen adds a line to the page saying so
-            document.getElementById("dateChosen").innerHTML=date[0]+" <br>Your Trip is: "+days+text+" long";
-
-           
-            
+            document.getElementById("dateChosen").innerHTML=date[0]+" and your Trip is: "+days+text+" long";
         }
         //Checks if the date isn't chosen
         if(!date[1])

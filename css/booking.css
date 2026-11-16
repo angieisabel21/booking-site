@@ -56,7 +56,6 @@ h2
     display:flex;
     justify-content:center;
     border-spacing:30px;
-    border:5px solid black;
 }
 
 #img:hover
