@@ -6,14 +6,6 @@
     justify-content:space-between;
 }
 
-/*Body details*/
-body
-{
-    border-right:50px solid #123c69;
-    border-left:50px solid #123c69;
-
-}
-
 /*Date Chosen details*/
 #dateChosen
 {
